@@ -20,9 +20,12 @@
 			<h1>TodoList</h1>
 		</div>
 	</div>
-	<div class="container">
-		<!-- todo追加 th:href="@{'/'}"-->
-		<a class="btn">TODO追加</a>
+	<div class="a-tag">
+		<div class="container">
+			<h2>
+				<a th:href="@{'/'}">TODO追加</a>
+			</h2>
+		</div>
 	</div>
 	<div class="table-header">
 		<div class="container">
@@ -38,13 +41,13 @@
 					<th class="info col-sm-2">期日</th>
 					<th class="info col-sm-2"></th>
 				</tr>
-				<tr th:each="todo:${todoList}">
+				<tr th:each="todo:${todoListTrue}">
 					<td th:text="${todo.id}"></td>
 					<td th:text="${todo.title}"></td>
 					<td th:text="${todo.time_limit}"></td>
 					<td>
 						<!-- 動的URL -->
-						<a class="btn btn-primary" th:href="@{'//' + ${}}">詳細</a>
+						<a th:href="@{'//' + ${}}">詳細</a>
 					</td>
 				</tr>
 			</table>
@@ -64,13 +67,13 @@
 					<th class="info col-sm-2">期日</th>
 					<th class="info col-sm-2"></th>
 				</tr>
-				<tr th:each="todo:${todoList}">
+				<tr th:each="todo:${todoListFalse}">
 					<td th:text="${todo.id}"></td>
-					<td th:text="${todo.title}"></td>
+					<td class="title" th:text="${todo.title}"></td>
 					<td th:text="${todo.time_limit}"></td>
 					<td>
 						<!-- 動的URL -->
-						<a class="btn btn-primary" th:href="@{'//' + ${}}">詳細</a>
+						<a th:href="@{'//' + ${}}">詳細</a>
 					</td>
 				</tr>
 			</table>
@@ -78,7 +81,9 @@
 	</div>
 	<div class="button-wrapper">
 		<div class="container">
-			<button type="button" class="btn btn-primary mb-12">完了済みを削除</button>
+			<form method="post" th:action="@{'/todoList'}" th:object="${user}">
+				<button type="submit" class="btn btn-primary mb-12">完了済みを削除</button>
+			</form>
 		</div>
 	</div>
 </body>
