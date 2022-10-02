@@ -17,57 +17,65 @@
 <body>
 	<div class="page-header">
 		<div class="container">
-			<h1>ユーザー一覧</h1>
+			<h1>TodoList</h1>
 		</div>
 	</div>
 	<div class="container">
 		<!-- todo追加 th:href="@{'/'}"-->
-		<a class="btn btn-primary">TODO追加</a>
+		<a class="btn">TODO追加</a>
 	</div>
 	<div class="table-header">
 		<div class="container">
 			<h2>未完了リスト</h2>
 		</div>
 	</div>
-	<table class="table table-bordered table-hover table-striped">
-		<tr>
-			<th class="info col-sm-2">id</th>
-			<th class="info col-sm-2">タイトル</th>
-			<th class="info col-sm-2">期日</th>
-			<th class="info col-sm-2"></th>
-		</tr>
-		<tr th:each="todo:${todoList}">
-			<td th:text="${todo.id}"></td>
-			<td th:text="${todo.title}"></td>
-			<td th:text="${todo.time_limit}"></td>
-			<td>
-				<!-- 動的URL -->
-				<a class="btn btn-primary" th:href="@{'//' + ${}}">詳細</a>
-			</td>
-		</tr>
-	</table>
+	<div class="table-menu">
+		<div class="container">
+			<table class="table table-bordered table-hover table-striped">
+				<tr>
+					<th class="info col-sm-2">id</th>
+					<th class="info col-sm-2">タイトル</th>
+					<th class="info col-sm-2">期日</th>
+					<th class="info col-sm-2"></th>
+				</tr>
+				<tr th:each="todo:${todoList}">
+					<td th:text="${todo.id}"></td>
+					<td th:text="${todo.title}"></td>
+					<td th:text="${todo.time_limit}"></td>
+					<td>
+						<!-- 動的URL -->
+						<a class="btn btn-primary" th:href="@{'//' + ${}}">詳細</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
 	<div class="table-header">
 		<div class="container">
 			<h2>完了リスト</h2>
 		</div>
 	</div>
-	<table class="table table-bordered table-hover table-striped">
-		<tr>
-			<th class="info col-sm-2">id</th>
-			<th class="info col-sm-2">タイトル</th>
-			<th class="info col-sm-2">期日</th>
-			<th class="info col-sm-2"></th>
-		</tr>
-		<tr th:each="todo:${todoList}">
-			<td th:text="${todo.id}"></td>
-			<td th:text="${todo.title}"></td>
-			<td th:text="${todo.time_limit}"></td>
-			<td>
-				<!-- 動的URL -->
-				<a class="btn btn-primary" th:href="@{'//' + ${}}">詳細</a>
-			</td>
-		</tr>
-	</table>
+	<div class="table-menu">
+		<div class="container">
+			<table class="table table-bordered table-hover table-striped">
+				<tr>
+					<th class="info col-sm-2">id</th>
+					<th class="info col-sm-2">タイトル</th>
+					<th class="info col-sm-2">期日</th>
+					<th class="info col-sm-2"></th>
+				</tr>
+				<tr th:each="todo:${todoList}">
+					<td th:text="${todo.id}"></td>
+					<td th:text="${todo.title}"></td>
+					<td th:text="${todo.time_limit}"></td>
+					<td>
+						<!-- 動的URL -->
+						<a class="btn btn-primary" th:href="@{'//' + ${}}">詳細</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
 	<div class="button-wrapper">
 		<div class="container">
 			<button type="button" class="btn btn-primary mb-12">完了済みを削除</button>
