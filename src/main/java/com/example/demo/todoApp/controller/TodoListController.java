@@ -13,7 +13,6 @@ import com.example.demo.todoApp.domain.service.UserService;
 
 @Controller
 public class TodoListController {
-
 	@Autowired
 	UserService userService;
 
@@ -25,14 +24,12 @@ public class TodoListController {
 		// 完了リスト
 		List<User> todoListFalse = userService.selectTodoListFalse();
 		model.addAttribute("todoListFalse", todoListFalse);
-
 		return "html/todoList";
 	}
 
 	@PostMapping("/todoList")
 	public String postTodoList(Model model) {
 		userService.deleteTodoList();
-
 		return getTodoList(model);
 	}
 }

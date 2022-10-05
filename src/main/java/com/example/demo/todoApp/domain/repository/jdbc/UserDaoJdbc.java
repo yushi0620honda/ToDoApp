@@ -14,7 +14,6 @@ import com.example.demo.todoApp.domain.repository.UserDao;
 
 @Repository
 public class UserDaoJdbc implements UserDao {
-
 	@Autowired
 	private JdbcTemplate jdbc;
 

@@ -10,7 +10,6 @@ import com.example.demo.todoApp.domain.repository.jdbc.UserDaoJdbc;
 
 @Service
 public class UserService {
-
 	// JDBCに紐づけ
 	@Autowired
 	UserDaoJdbc dao;
