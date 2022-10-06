@@ -23,5 +23,5 @@ public class UserForm {
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate time_limit;
-
+	private boolean check;
 }

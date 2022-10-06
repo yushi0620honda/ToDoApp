@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.todoApp.domain.model.User;
+import com.example.demo.todoApp.domain.model.UserForm;
 import com.example.demo.todoApp.domain.repository.UserDao;
 
 @Repository
@@ -42,6 +43,29 @@ public class UserDaoJdbc implements UserDao {
 	@Override
 	public void getTodoListDelete() throws DataAccessException {
 		jdbc.update("DELETE FROM todo_details WHERE is_done = false");
+	}
+
+	@Override
+	public void updateTodoDetailTrue(UserForm userForm) throws DataAccessException {
+		jdbc.update("UPDATE todo_details SET title = ?, time_limit = ?, is_done = ? WHERE id = ?", userForm.getTitle(),
+				userForm.getTime_limit(), true, userForm.getId());
+	}
+
+	@Override
+	public void updateTodoDetailFalse(UserForm userForm) throws DataAccessException {
+		jdbc.update("UPDATE todo_details SET title = ?, time_limit = ?, is_done = ? WHERE id = ?", userForm.getTitle(),
+				userForm.getTime_limit(), false, userForm.getId());
+	}
+
+	@Override
+	public List<User> selectTodoList(int id) throws DataAccessException {
+		List<Map<String, Object>> getList = jdbc.queryForList("SELECT * FROM todo_details WHERE id = ?", id);
+		List<User> todoList = new ArrayList<>();
+		for (Map<String, Object> map : getList) {
+			User user = convert(map);
+			todoList.add(user);
+		}
+		return todoList;
 	}
 
 	private User convert(Map<String, Object> map) {
