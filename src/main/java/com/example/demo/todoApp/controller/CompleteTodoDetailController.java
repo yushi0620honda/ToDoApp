@@ -9,6 +9,6 @@ public class CompleteTodoDetailController {
 	@GetMapping("/completeTodoDetail")
 	public String getTodoList() {
 
-		return "lhtml/todoList";
+		return "html/todoList";
 	}
 }
