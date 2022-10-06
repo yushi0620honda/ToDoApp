@@ -40,7 +40,7 @@ public class UserDaoJdbc implements UserDao {
 	}
 
 	@Override
-	public void getTodoListDelete() throws DataAccessException {
+	public void deleteTodoList() throws DataAccessException {
 		jdbc.update("DELETE FROM todo_details WHERE is_done = false");
 	}
 

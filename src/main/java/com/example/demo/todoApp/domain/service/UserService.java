@@ -23,6 +23,6 @@ public class UserService {
 	}
 
 	public void deleteTodoList() {
-		dao.getTodoListDelete();
+		dao.deleteTodoList();
 	}
 }

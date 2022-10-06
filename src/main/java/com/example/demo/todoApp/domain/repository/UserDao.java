@@ -11,5 +11,5 @@ public interface UserDao {
 
 	public List<User> selectTodoListFalse() throws DataAccessException;
 
-	public void getTodoListDelete() throws DataAccessException;
+	public void deleteTodoList() throws DataAccessException;
 }
