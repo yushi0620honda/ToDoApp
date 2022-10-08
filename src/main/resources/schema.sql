@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS todo_details (
-	id INTEGER PRIMARY KEY,
-	title VARCHAR(40),
-	is_done BOOLEAN,
-	time_limit DATE
+	id INT IDENTITY(1,1) PRIMARY KEY,
+	title VARCHAR (40) UNIQUE NOT NULL,
+	is_done BOOLEAN NOT NULL,
+	time_limit DATE NOT NULL
 );

@@ -35,14 +35,29 @@ public class TodoDetailController {
 		if (bindingResult.hasErrors()) {
 			return getTodoDetail(model, id, userForm);
 		}
-		userForm.setId(id);
 		// チェックリスト 完了フラグ
 		boolean check = userForm.isCheck();
-		// チェックリストを押すとチェックリストはTrue、 完了リストはFalseで完了リストへ
+		// dbに登録されている値と入力値
+		String nowTitle = userService.getNowTitleById(id);
+		String newTitle = userForm.getTitle();
+		userForm.setId(id);
+		// チェックリストを押すとチェックリストはTrue、 完了リストはFalseでそれぞれ更新
 		if (check == true) {
-			userService.updateTodoDetailFalse(userForm);
+			// dbに登録されている値と入力値を比較し、Trueならエラーメッセージ、Falseなら更新
+			if (newTitle.equals(nowTitle)) {
+				model.addAttribute("message", "このタスクは既に登録されています");
+				return getTodoDetail(model, id, userForm);
+			} else {
+				userService.updateTodoDetailFalse(userForm);
+			}
 		} else {
-			userService.updateTodoDetailTrue(userForm);
+			// dbに登録されている値と入力値を比較し、Trueならエラーメッセージ、Falseなら更新
+			if (newTitle.equals(nowTitle)) {
+				model.addAttribute("message", "このタスクは既に登録されています");
+				return getTodoDetail(model, id, userForm);
+			} else {
+				userService.updateTodoDetailTrue(userForm);
+			}
 		}
 		return "html/CompleteTodoDetail";
 	}

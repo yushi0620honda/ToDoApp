@@ -68,9 +68,28 @@ public class UserDaoJdbc implements UserDao {
 		return todoList;
 	}
 
+	@Override
+	public void insertTodoDetailTrue(UserForm userForm) throws DataAccessException {
+		jdbc.update("INSERT INTO todo_details ( title, is_done, time_limit) VALUES ( ?, ?, ?)", userForm.getTitle(),
+				true, userForm.getTime_limit());
+	}
+
+	@Override
+	public void insertTodoDetailFalse(UserForm userForm) throws DataAccessException {
+		jdbc.update("INSERT INTO todo_details ( title, is_done, time_limit) VALUES ( ?, ?, ?)", userForm.getTitle(),
+				false, userForm.getTime_limit());
+	}
+
+	@Override
+	public String getNowTitleById(int id) throws DataAccessException {
+		Map<String, Object> map = jdbc.queryForMap("SELECT title FROM todo_details WHERE id = ?", id);
+		String nowTitle = (String) map.get("title");
+		return nowTitle;
+	}
+
 	private User convert(Map<String, Object> map) {
 		User user = new User();
-		user.setId((Integer) map.get("id"));
+		user.setId((int) map.get("id"));
 		user.setTitle((String) map.get("title"));
 		user.set_done((boolean) map.get("is_done"));
 		user.setTime_limit(((java.sql.Date) map.get("time_limit")).toLocalDate());

@@ -38,4 +38,16 @@ public class UserService {
 	public List<User> selectTodoList(int id) {
 		return dao.selectTodoList(id);
 	}
+
+	public void insertTodoDetailTrue(UserForm userForm) {
+		dao.insertTodoDetailTrue(userForm);
+	}
+
+	public void insertTodoDetailFalse(UserForm userForm) {
+		dao.insertTodoDetailFalse(userForm);
+	}
+
+	public String getNowTitleById(int id) {
+		return dao.getNowTitleById(id);
+	}
 }

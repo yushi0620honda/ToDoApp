@@ -20,8 +20,7 @@
 			<h1>TodoAddForm</h1>
 		</div>
 	</div>
-	<form method="post" th:action="@{'/todoAddForm/' + ${id}}"
-		th:object="${userForm}">
+	<form method="post" th:action="@{/todoAddForm}" th:object="${userForm}">
 		<table>
 			<tr>
 				<th class="active">タイトル</th>
@@ -29,13 +28,15 @@
 			<tr>
 				<td>
 					<div class="form-group"
-						th:classappend="${#fields.hasErrors('title')} ?'has-error'"
-						th:each="todo:${todoList}">
+						th:classappend="${#fields.hasErrors('title')} ?'has-error'">
 						<div class="container">
-							<input type="text" class="form-control" th:field="*{title}"
-								th:value="${todo.title}" /> <span class="text-danger"
-								th:if="${#fields.hasErrors('title')}" th:errors="*{title}">error</span>
+							<input type="text" class="form-control" th:field="*{title}" /> <span
+								class="text-danger" th:if="${#fields.hasErrors('title')}"
+								th:errors="*{title}">error</span>
+							<!-- タイトルが重複していないか確認 バリデーション-->
+							<p class="text-danger" th:text="${message}"></p>
 						</div>
+
 					</div>
 				</td>
 			</tr>
@@ -45,11 +46,10 @@
 			<tr>
 				<td>
 					<div class="form-group"
-						th:classappend="${#fields.hasErrors('time_limit')} ?'has-error'"
-						th:each="todo:${todoList}">
+						th:classappend="${#fields.hasErrors('time_limit')} ?'has-error'">
 						<div class="container">
-							<input type="date" class="form-control" th:field="*{time_limit}"
-								th:value="${todo.time_limit}" /> <span class="text-danger"
+							<input type="date" class="form-control" th:field="*{time_limit}" />
+							<span class="text-danger"
 								th:if="${#fields.hasErrors('time_limit')}"
 								th:errors="*{time_limit}">error</span>
 						</div>
@@ -64,7 +64,7 @@
 		</div>
 		<div class="button-wrapper">
 			<div class="container">
-				<button type="submit" class="btn btn-primary">更新</button>
+				<button type="submit" class="btn btn-primary">追加</button>
 			</div>
 		</div>
 	</form>

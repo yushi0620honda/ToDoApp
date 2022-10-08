@@ -19,4 +19,10 @@ public interface UserDao {
 	public void updateTodoDetailFalse(UserForm userForm) throws DataAccessException;
 
 	public List<User> selectTodoList(int id) throws DataAccessException;
+
+	public void insertTodoDetailTrue(UserForm userForm) throws DataAccessException;
+
+	public void insertTodoDetailFalse(UserForm userForm) throws DataAccessException;
+
+	public String getNowTitleById(int id) throws DataAccessException;
 }
