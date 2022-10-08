@@ -68,6 +68,13 @@ public class UserDaoJdbc implements UserDao {
 		return todoList;
 	}
 
+	@Override
+	public String getNowTitleById(int id) throws DataAccessException {
+		Map<String, Object> map = jdbc.queryForMap("SELECT title FROM todo_details WHERE id = ?", id);
+		String nowTitle = (String) map.get("title");
+		return nowTitle;
+	}
+
 	private User convert(Map<String, Object> map) {
 		User user = new User();
 		user.setId((Integer) map.get("id"));

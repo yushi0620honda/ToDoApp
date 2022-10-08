@@ -38,4 +38,8 @@ public class UserService {
 	public List<User> selectTodoList(int id) {
 		return dao.selectTodoList(id);
 	}
+
+	public String getNowTitleById(int id) {
+		return dao.getNowTitleById(id);
+	}
 }
