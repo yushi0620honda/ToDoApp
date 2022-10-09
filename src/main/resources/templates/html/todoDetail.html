@@ -52,8 +52,9 @@
 						<div class="container">
 							<input type="text" class="form-control"
 								onfocus="this.type='date'" onfocusout="this.type='text'"
-								th:field="*{time_limit}" th:placeholder="${todo.time_limit}" /> <span
-								class="text-danger" th:if="${#fields.hasErrors('time_limit')}"
+								th:field="*{time_limit}" th:placeholder="${todo.time_limit}" />
+							<span class="text-danger"
+								th:if="${#fields.hasErrors('time_limit')}"
 								th:errors="*{time_limit}">error</span>
 						</div>
 					</div>

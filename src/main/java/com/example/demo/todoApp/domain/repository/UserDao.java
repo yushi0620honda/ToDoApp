@@ -20,5 +20,5 @@ public interface UserDao {
 
 	public List<User> selectTodoList(int id) throws DataAccessException;
 
-	public String getNowTitleById(int id) throws DataAccessException;
+	public boolean count(String title) throws DataAccessException;
 }
