@@ -47,7 +47,7 @@ public class UserService {
 		dao.insertTodoDetailFalse(userForm);
 	}
 
-	public String getNowTitleById(int id) {
-		return dao.getNowTitleById(id);
+	public boolean count(String title) {
+		return dao.count(title);
 	}
 }

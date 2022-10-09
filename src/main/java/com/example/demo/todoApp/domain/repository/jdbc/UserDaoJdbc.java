@@ -80,11 +80,17 @@ public class UserDaoJdbc implements UserDao {
 				false, userForm.getTime_limit());
 	}
 
-	@Override
-	public String getNowTitleById(int id) throws DataAccessException {
-		Map<String, Object> map = jdbc.queryForMap("SELECT title FROM todo_details WHERE id = ?", id);
-		String nowTitle = (String) map.get("title");
-		return nowTitle;
+	// 通常の非推奨警告のみを抑制
+	@SuppressWarnings("deprecation")
+	// タイトルが登録されてない場合[false]、タイトルが登録されている場合[true]
+	public boolean count(String title) {
+		String sql = "SELECT count(*) FROM todo_details WHERE title = ?";
+		boolean result = false;
+		int count = jdbc.queryForObject(sql, new Object[] { title }, Integer.class);
+		if (count > 0) {
+			result = true;
+		}
+		return result;
 	}
 
 	private User convert(Map<String, Object> map) {

@@ -20,8 +20,7 @@
 			<h1>TodoAddForm</h1>
 		</div>
 	</div>
-	<form method="post" th:action="@{'/todoAddForm/' + ${id}}"
-		th:object="${userForm}">
+	<form method="post" th:action="@{/todoAddForm}" th:object="${userForm}">
 		<table>
 			<tr>
 				<th class="active">タイトル</th>

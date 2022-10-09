@@ -24,5 +24,5 @@ public interface UserDao {
 
 	public void insertTodoDetailFalse(UserForm userForm) throws DataAccessException;
 
-	public String getNowTitleById(int id) throws DataAccessException;
+	public boolean count(String title) throws DataAccessException;
 }
