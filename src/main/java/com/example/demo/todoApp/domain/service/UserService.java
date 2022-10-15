@@ -24,7 +24,7 @@ public class UserService {
 	}
 
 	public void deleteTodoList() {
-		dao.getTodoListDelete();
+		dao.deleteTodoList();
 	}
 
 	public void updateTodoDetailTrue(UserForm userForm) {
