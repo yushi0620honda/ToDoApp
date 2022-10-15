@@ -35,6 +35,8 @@
 							<input type="text" class="form-control" th:field="*{title}"
 								th:placeholder="${todo.title}" /> <span class="text-danger"
 								th:if="${#fields.hasErrors('title')}" th:errors="*{title}">error</span>
+							<!-- タイトルが重複していないか確認 バリデーション-->
+							<p class="text-danger" th:text="${message}"></p>
 						</div>
 					</div>
 				</td>

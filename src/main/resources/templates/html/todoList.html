@@ -43,8 +43,7 @@
 					<td th:text="${todo.title}"></td>
 					<td th:text="${todo.time_limit}"></td>
 					<td>
-						<!-- 動的URL -->
-						<a th:href="@{'/todoDetail/' + ${todo.id}}">詳細</a>
+						<!-- 動的URL --> <a th:href="@{'/todoDetail/' + ${todo.id}}">詳細</a>
 					</td>
 				</tr>
 			</table>
@@ -69,8 +68,7 @@
 					<td class="title" th:text="${todo.title}"></td>
 					<td th:text="${todo.time_limit}"></td>
 					<td>
-						<!-- 動的URL -->
-						<a th:href="@{'/todoDetail/' + ${todo.id}}">詳細</a>
+						<!-- 動的URL --> <a th:href="@{'/todoDetail/' + ${todo.id}}">詳細</a>
 					</td>
 				</tr>
 			</table>

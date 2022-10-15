@@ -24,7 +24,7 @@ public class UserService {
 	}
 
 	public void deleteTodoList() {
-		dao.getTodoListDelete();
+		dao.deleteTodoList();
 	}
 
 	public void updateTodoDetailTrue(UserForm userForm) {
@@ -46,6 +46,7 @@ public class UserService {
 	public void insertTodoDetailFalse(UserForm userForm) {
 		dao.insertTodoDetailFalse(userForm);
 	}
+
 
 	public boolean count(String title) {
 		return dao.count(title);
