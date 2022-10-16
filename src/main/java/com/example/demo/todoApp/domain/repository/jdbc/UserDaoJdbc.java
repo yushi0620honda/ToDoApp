@@ -70,14 +70,14 @@ public class UserDaoJdbc implements UserDao {
 
 	@Override
 	public void insertTodoDetailTrue(UserForm userForm) throws DataAccessException {
-		jdbc.update("INSERT INTO todo_details ( title, is_done, time_limit) VALUES ( ?, ?, ?)", userForm.getTitle(),
-				true, userForm.getTime_limit());
+		jdbc.update("INSERT INTO todo_details(title, is_done, time_limit) VALUES (?, ?, ?)", userForm.getTitle(), true,
+				userForm.getTime_limit());
 	}
 
 	@Override
 	public void insertTodoDetailFalse(UserForm userForm) throws DataAccessException {
-		jdbc.update("INSERT INTO todo_details ( title, is_done, time_limit) VALUES ( ?, ?, ?)", userForm.getTitle(),
-				false, userForm.getTime_limit());
+		jdbc.update("INSERT INTO todo_details(title, is_done, time_limit) VALUES (?, ?, ?)", userForm.getTitle(), false,
+				userForm.getTime_limit());
 	}
 
 	// 通常の非推奨警告のみを抑制

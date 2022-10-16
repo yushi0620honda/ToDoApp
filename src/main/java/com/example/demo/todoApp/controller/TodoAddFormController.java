@@ -45,6 +45,6 @@ public class TodoAddFormController {
 			model.addAttribute("message", "このタスクは既に登録されています");
 			return getTodoAddForm(model, userForm);
 		}
-		return "html/completeTodoAddForm";
+		return "redirect:/todoList";
 	}
 }
