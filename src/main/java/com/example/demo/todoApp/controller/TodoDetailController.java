@@ -51,6 +51,6 @@ public class TodoDetailController {
 			model.addAttribute("message", "このタスクは既に登録されています");
 			return getTodoDetail(model, id, userForm);
 		}
-		return "html/CompleteTodoDetail";
+		return "redirect:/todoList";
 	}
 }
