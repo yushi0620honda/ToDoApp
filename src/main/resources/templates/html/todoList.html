@@ -37,7 +37,7 @@
 				<th class="info col">期日</th>
 				<th class="info col-sm-1"></th>
 			</tr>
-			<tr th:each="todo:${todoListTrue}">
+			<tr th:each="todo:${todoListFalse}">
 				<td th:text="${todo.id}"></td>
 				<td th:text="${todo.title}"></td>
 				<td th:text="${todo.time_limit}"></td>
@@ -60,7 +60,7 @@
 				<th class="info col">期日</th>
 				<th class="info col-sm-1"></th>
 			</tr>
-			<tr th:each="todo:${todoListFalse}">
+			<tr th:each="todo:${todoListTrue}">
 				<td th:text="${todo.id}"></td>
 				<td class="title" th:text="${todo.title}"></td>
 				<td th:text="${todo.time_limit}"></td>
