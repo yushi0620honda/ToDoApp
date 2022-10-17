@@ -32,8 +32,8 @@
 						th:classappend="${#fields.hasErrors('title')} ?'has-error'"
 						th:each="todo:${todoList}">
 						<div class="container">
-							<input type="text" class="form-control" th:field="*{title}"
-								th:placeholder="${todo.title}" /> <span class="text-danger"
+							<input type="text" class="form-control" th:value="${todo.title}"
+								id="title" name="title" /> <span class="text-danger"
 								th:if="${#fields.hasErrors('title')}" th:errors="*{title}">error</span>
 							<!-- タイトルが重複していないか確認 バリデーション-->
 							<p class="text-danger" th:text="${message}"></p>
@@ -50,9 +50,8 @@
 						th:classappend="${#fields.hasErrors('time_limit')} ?'has-error'"
 						th:each="todo:${todoList}">
 						<div class="container">
-							<input type="text" class="form-control"
-								onfocus="this.type='date'" onfocusout="this.type='text'"
-								th:field="*{time_limit}" th:placeholder="${todo.time_limit}" />
+							<input type="date" class="form-control"
+								th:value="${todo.time_limit}" id="time_limit" name="time_limit" />
 							<span class="text-danger"
 								th:if="${#fields.hasErrors('time_limit')}"
 								th:errors="*{time_limit}">error</span>
@@ -62,8 +61,9 @@
 			</tr>
 		</table>
 		<div class="checkbox-wrapper">
-			<div class="container">
-				<input type="checkbox" th:field="*{check}" /> <label for="check">完了フラグ</label>
+			<div class="container" th:each="todo:${todoList}">
+				<input type="checkbox" th:checked="${todo.is_done}" id="check"
+					name="check" /> <label for="check">完了フラグ</label>
 			</div>
 		</div>
 		<div class="button-wrapper">

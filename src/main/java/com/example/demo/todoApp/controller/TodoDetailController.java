@@ -41,8 +41,8 @@ public class TodoDetailController {
 		boolean titleCount = userService.count(userForm.getTitle());
 		// dbに登録されている値と入力値を比較し、Trueならエラーメッセージ、Falseなら更新
 		if (titleCount == false) {
-			// チェックリストを押すとチェックリストはTrue、 完了リストはFalseで完了リストへ
-			if (check == true) {
+			// チェックボックスを押す（True）と完了（True）、 チェックボックスを押さない（False）と未完了リスト(False)
+			if (check == false) {
 				userService.updateTodoDetailFalse(userForm);
 			} else {
 				userService.updateTodoDetailTrue(userForm);
@@ -51,6 +51,6 @@ public class TodoDetailController {
 			model.addAttribute("message", "このタスクは既に登録されています");
 			return getTodoDetail(model, id, userForm);
 		}
-		return "html/CompleteTodoDetail";
+		return "redirect:/todoList";
 	}
 }
