@@ -30,24 +30,22 @@
 		</div>
 	</div>
 	<div class="table-menu">
-		<div class="container">
-			<table class="table table-bordered table-hover table-striped">
-				<tr>
-					<th class="info col-sm-2">id</th>
-					<th class="info col-sm-2">タイトル</th>
-					<th class="info col-sm-2">期日</th>
-					<th class="info col-sm-2"></th>
-				</tr>
-				<tr th:each="todo:${todoListTrue}">
-					<td th:text="${todo.id}"></td>
-					<td th:text="${todo.title}"></td>
-					<td th:text="${todo.time_limit}"></td>
-					<td>
-						<!-- 動的URL --> <a th:href="@{'/todoDetail/' + ${todo.id}}">詳細</a>
-					</td>
-				</tr>
-			</table>
-		</div>
+		<table class="table table-bordered table-hover table-striped">
+			<tr>
+				<th class="info col-sm-1">id</th>
+				<th class="info col">タイトル</th>
+				<th class="info col">期日</th>
+				<th class="info col-sm-1"></th>
+			</tr>
+			<tr th:each="todo:${todoListTrue}">
+				<td th:text="${todo.id}"></td>
+				<td th:text="${todo.title}"></td>
+				<td th:text="${todo.time_limit}"></td>
+				<td>
+					<a th:href="@{'/todoDetail/' + ${todo.id}}">詳細</a>
+				</td>
+			</tr>
+		</table>
 	</div>
 	<div class="table-header">
 		<div class="container">
@@ -55,24 +53,22 @@
 		</div>
 	</div>
 	<div class="table-menu">
-		<div class="container">
-			<table class="table table-bordered table-hover table-striped">
-				<tr>
-					<th class="info col-sm-2">id</th>
-					<th class="info col-sm-2">タイトル</th>
-					<th class="info col-sm-2">期日</th>
-					<th class="info col-sm-2"></th>
-				</tr>
-				<tr th:each="todo:${todoListFalse}">
-					<td th:text="${todo.id}"></td>
-					<td class="title" th:text="${todo.title}"></td>
-					<td th:text="${todo.time_limit}"></td>
-					<td>
-						<!-- 動的URL --> <a th:href="@{'/todoDetail/' + ${todo.id}}">詳細</a>
-					</td>
-				</tr>
-			</table>
-		</div>
+		<table class="table table-bordered table-hover table-striped">
+			<tr>
+				<th class="info col-sm-1">id</th>
+				<th class="info col">タイトル</th>
+				<th class="info col">期日</th>
+				<th class="info col-sm-1"></th>
+			</tr>
+			<tr th:each="todo:${todoListFalse}">
+				<td th:text="${todo.id}"></td>
+				<td class="title" th:text="${todo.title}"></td>
+				<td th:text="${todo.time_limit}"></td>
+				<td>
+					<a th:href="@{'/todoDetail/' + ${todo.id}}">詳細</a>
+				</td>
+			</tr>
+		</table>
 	</div>
 	<div class="button-wrapper">
 		<div class="container">
