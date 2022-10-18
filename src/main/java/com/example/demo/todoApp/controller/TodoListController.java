@@ -18,10 +18,10 @@ public class TodoListController {
 
 	@GetMapping("/todoList")
 	public String getTodoList(Model model) {
-		// 未完了リスト
+		// 完了リスト
 		List<User> todoListTrue = userService.selectTodoListTrue();
 		model.addAttribute("todoListTrue", todoListTrue);
-		// 完了リスト
+		// 未完了リスト
 		List<User> todoListFalse = userService.selectTodoListFalse();
 		model.addAttribute("todoListFalse", todoListFalse);
 		return "html/todoList";
