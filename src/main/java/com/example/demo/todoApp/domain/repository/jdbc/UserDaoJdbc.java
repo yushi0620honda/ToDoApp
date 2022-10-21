@@ -41,7 +41,7 @@ public class UserDaoJdbc implements UserDao {
 
 	@Override
 	public void deleteTodoList() throws DataAccessException {
-		jdbc.update("DELETE FROM todo_details WHERE is_done = false");
+		jdbc.update("DELETE FROM todo_details WHERE is_done = true");
 	}
 
 	private User convert(Map<String, Object> map) {
