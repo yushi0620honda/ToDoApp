@@ -42,7 +42,7 @@
 				<td th:text="${todo.title}"></td>
 				<td th:text="${todo.time_limit}"></td>
 				<td>
-					<a th:href="@{'//' + ${}}">詳細</a>
+					<a th:href="@{'/todoDetail/' + ${todo.id}}">詳細</a>
 				</td>
 			</tr>
 		</table>
@@ -65,7 +65,7 @@
 				<td class="title" th:text="${todo.title}"></td>
 				<td th:text="${todo.time_limit}"></td>
 				<td>
-					<a th:href="@{'//' + ${}}">詳細</a>
+					<a th:href="@{'/todoDetail/' + ${todo.id}}">詳細</a>
 				</td>
 			</tr>
 		</table>
