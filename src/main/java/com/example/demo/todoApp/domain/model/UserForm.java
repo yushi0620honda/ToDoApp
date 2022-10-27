@@ -23,6 +23,5 @@ public class UserForm {
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate time_limit;
-	// 完了リスト、未完了リストのチェックボックス
-	private boolean check;
+
 }
