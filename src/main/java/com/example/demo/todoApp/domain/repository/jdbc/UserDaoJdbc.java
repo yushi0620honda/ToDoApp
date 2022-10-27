@@ -68,6 +68,18 @@ public class UserDaoJdbc implements UserDao {
 		return todoList;
 	}
 
+	@Override
+	public void insertTodoDetailTrue(UserForm userForm) throws DataAccessException {
+		jdbc.update("INSERT INTO todo_details (title, is_done, time_limit) VALUES (?, ?, ?)", userForm.getTitle(), true,
+				userForm.getTime_limit());
+	}
+
+	@Override
+	public void insertTodoDetailFalse(UserForm userForm) throws DataAccessException {
+		jdbc.update("INSERT INTO todo_details (title, is_done, time_limit) VALUES (?, ?, ?)", userForm.getTitle(),
+				false, userForm.getTime_limit());
+	}
+
 	// 通常の非推奨警告のみを抑制
 	@SuppressWarnings("deprecation")
 	// タイトルが登録されてない場合[false]、タイトルが登録されている場合[true]
