@@ -18,6 +18,10 @@ public interface UserDao {
 
 	public List<User> selectTodoList(int id) throws DataAccessException;
 
+	public void insertTodoDetailTrue(UserForm userForm) throws DataAccessException;
+
+	public void insertTodoDetailFalse(UserForm userForm) throws DataAccessException;
+
 	public boolean count(String title) throws DataAccessException;
 
 	public void deleteTodoList() throws DataAccessException;

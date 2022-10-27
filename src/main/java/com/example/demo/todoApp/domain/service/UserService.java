@@ -39,6 +39,15 @@ public class UserService {
 		return dao.selectTodoList(id);
 	}
 
+	public void insertTodoDetailTrue(UserForm userForm) {
+		dao.insertTodoDetailTrue(userForm);
+	}
+
+	public void insertTodoDetailFalse(UserForm userForm) {
+		dao.insertTodoDetailFalse(userForm);
+	}
+
+
 	public boolean count(String title) {
 		return dao.count(title);
 	}
