@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.todoApp.domain.model.User;
+import com.example.demo.todoApp.domain.model.UserForm;
 import com.example.demo.todoApp.domain.repository.UserDao;
 
 @Repository
