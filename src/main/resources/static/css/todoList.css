@@ -1,0 +1,25 @@
+body {
+	margin: 0 auto;
+	padding-top: 70px;
+	width: 600px;
+}
+
+.container {
+	text-align: center;
+}
+
+.title {
+	text-decoration: line-through;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 {
+	font-size: 50px;
+}
+
+.a-tag {
+	padding: 20px 0;
+}
