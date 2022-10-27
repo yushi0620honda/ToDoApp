@@ -39,7 +39,7 @@ public class TodoDetailController {
 		boolean check = userForm.isCheck();
 		// countの結果
 		boolean titleCount = userService.count(userForm.getTitle());
-		// dbに登録されている値と入力値を比較し、Trueならエラーメッセージ、Falseなら更新
+		// dbに登録されている値と入力値を比較し、Trueならエラーメッセージ、 Falseなら更新
 		if (titleCount == false) {
 			// チェックボックスを押す（True）と完了（True）、 チェックボックスを押さない（False）と未完了リスト(False)
 			if (check == false) {
